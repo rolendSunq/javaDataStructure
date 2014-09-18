@@ -1,4 +1,4 @@
-package stack;
+package stack.linkedstack;
 
 public class LLNode<T> {
 	private LLNode<T> link;

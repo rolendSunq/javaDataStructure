@@ -1,6 +1,10 @@
-package stack;
+package stack.arraylist;
 
 import java.util.ArrayList;
+
+import stack.StackOverflowException;
+import stack.StackUnderflowException;
+import stack.UnboundedStackInterface;
 
 public class ArrayListStack<T> implements UnboundedStackInterface<T> {
 

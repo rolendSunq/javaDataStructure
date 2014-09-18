@@ -1,4 +1,4 @@
-package stack;
+package stack.arraystack;
 
 public class ArrayStackTestMain {
 

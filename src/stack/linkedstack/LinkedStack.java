@@ -1,4 +1,8 @@
-package stack;
+package stack.linkedstack;
+
+import stack.StackOverflowException;
+import stack.StackUnderflowException;
+import stack.UnboundedStackInterface;
 
 public class LinkedStack<T> implements UnboundedStackInterface<T> {
 	
@@ -22,7 +26,7 @@ public class LinkedStack<T> implements UnboundedStackInterface<T> {
 
 	@Override
 	public Boolean isEmpty() {
-		return (top == null) ? true : false;
+		return (top == null);
 	}
 
 	/*

@@ -1,4 +1,8 @@
-package stack;
+package stack.arraystack;
+
+import stack.BoundedStackInterface;
+import stack.StackOverflowException;
+import stack.StackUnderflowException;
 
 
 public class ArrayStack<T> implements BoundedStackInterface<T> {
