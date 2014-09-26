@@ -5,11 +5,11 @@ import queue.QueueOverflowException;
 import queue.QueueUnderflowException;
 
 public class SyncArrayBounedQueue<T> implements BoundedQueueInterface<T> {
-	private final int DEFAULT_CAPACITY = 100; 	// default capacity
-	private T[] queue; 							// array that holds queue elements
-	private int numberOfElements = 0; 			// number of elements n the queue
-	private int front = 0; 						// index of front of queue
-	private int rear;
+	private final int DEFAULT_CAPACITY = 100; 	// 기본 용량
+	private T[] queue; 							// 큐 요소(element)는 배열 구조이다.
+	private int numberOfElements = 0; 			// 큐에서 요소(element)의 수
+	private int front = 0; 						// 큐에서 front의 값(배열의 인덱스 값)
+	private int rear;							// 큐에서 가장 하단의 요소(element) rear의 값
 
 	@SuppressWarnings("unchecked")
 	public SyncArrayBounedQueue() {
