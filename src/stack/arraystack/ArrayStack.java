@@ -22,7 +22,7 @@ public class ArrayStack<T> implements BoundedStackInterface<T> {
 	}
 	
 	@Override
-	public void pop() throws StackOverflowException {
+	public void pop() throws StackUnderflowException {
 		
 		if (!isEmpty()) {
 			stack[topIndex] = null;

@@ -4,6 +4,10 @@ public class LinkedListNode<T> {
 	private LinkedListNode<T> link;
 	private T info;
 	
+	public LinkedListNode() {
+		// empty
+	}
+	
 	public LinkedListNode(T info) {
 		this.info = info;
 		link = null;

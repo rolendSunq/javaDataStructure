@@ -46,7 +46,7 @@ public class ArrayUnsortedUnboundedList<T> implements UnsrotedListInterface<T> {
 		location = 0;
 		found = false;
 		
-		while((location < numberOfElements) && !found) {
+		while(location < numberOfElements && !found) {
 			if (list[location].equals(target)) {
 				found = true;
 			} else {
@@ -100,15 +100,23 @@ public class ArrayUnsortedUnboundedList<T> implements UnsrotedListInterface<T> {
 		find(element);
 		
 		if (found) {
-			for (int i = location; i < numberOfElements - 2; i++) {
-				list[i] = list[i + 1];
-			}
-			
-			list[numberOfElements - 1]  = null;
+			list[location] = list[numberOfElements - 1];
+			list[numberOfElements - 1] = null;
 			numberOfElements--;
 		}
 		
 		return found;
 	}
-
+	
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		
+		for (T data : list) {
+			if (data != null) {
+				sb.append(String.valueOf(data) + " ");
+			}
+		}
+		return sb.toString();
+	}
 }
