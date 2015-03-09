@@ -19,17 +19,63 @@ public class ArrayUnsortedList<T> implements ListInterface<T>{
 		originalCapacity = DEFAULT_CAPACITY;
 	}
 	
-	
-
 	@SuppressWarnings("unchecked")
 	public ArrayUnsortedList(int originalCapacity) {
 		list  = (T[]) new Object[originalCapacity];
 		this.originalCapacity = originalCapacity;
 	}
 
+	
+	public int getOriginalCapacity() {
+		return originalCapacity;
+	}
+
+	public void setOriginalCapacity(int originalCapacity) {
+		this.originalCapacity = originalCapacity;
+	}
+
+	public T[] getList() {
+		return list;
+	}
+
+	public void setList(T[] list) {
+		this.list = list;
+	}
+
+	public int getNumberOfElements() {
+		return numberOfElements;
+	}
+
+	public void setNumberOfElements(int numberOfElements) {
+		this.numberOfElements = numberOfElements;
+	}
+
+	public int getCurrentPosition() {
+		return currentPosition;
+	}
+
+	public void setCurrentPosition(int currentPosition) {
+		this.currentPosition = currentPosition;
+	}
+
+	public boolean isFound() {
+		return found;
+	}
+
+	public void setFound(boolean found) {
+		this.found = found;
+	}
+
+	public int getLocation() {
+		return location;
+	}
+
+	public void setLocation(int location) {
+		this.location = location;
+	}
 
 	@SuppressWarnings("unchecked")
-	private void enLarge() {
+	public void enLarge() {
 		T[] larger = (T[]) new Object[list.length + originalCapacity];
 		for (int i = 0; i < numberOfElements; i++) {
 			larger[i] = list[i];
@@ -37,7 +83,7 @@ public class ArrayUnsortedList<T> implements ListInterface<T>{
 		list = larger;
 	}
 	
-	private void find(T target) {
+	public void find(T target) {
 		boolean moreToSearch;
 		location = 0;
 		found = false;
