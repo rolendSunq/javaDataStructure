@@ -3,6 +3,11 @@ package lists.linked.part6;
 import lists.ListInterface;
 import lists.linked.part5.ArrayUnsortedList;
 
+/*
+ * ArraySortedListInterface를 정의 하였지만, ArrayUnSortedList를 확장하여 구현해보고
+ * part7에서 인터페이스를 통한 ArraySortedListImpl을 구현하자.
+ * 확장과 인터페이스를 통한 구현이 어떤 장점과 단점이 있는지 상황에 따라 사용하는 능력을 길러보자.
+ */
 public class ArraySortedList<T> extends ArrayUnsortedList<T> implements ListInterface<T> {
 	public ArraySortedList() {
 		super();
