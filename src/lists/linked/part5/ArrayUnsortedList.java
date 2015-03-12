@@ -156,7 +156,6 @@ public class ArrayUnsortedList<T> implements ListInterface<T>{
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("UnSortedList::::");
 		for (int i = 0; i < numberOfElements; i++) {
 				sb.append("[" + list[i] + "]");
 		}

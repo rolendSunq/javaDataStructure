@@ -40,9 +40,9 @@ public class ArraySortedList<T> extends ArrayUnsortedList<T> implements ListInte
 		if (getNumberOfElements() == getList().length) {
 			enLarge();
 		}
-
+		
 		while (location < getNumberOfElements()) {
-			listElement = (T[]) getList()[location];
+			listElement = getList();
 			if (((Comparable<T>) listElement[location]).compareTo(element) < 0) {
 				location++;
 			} else {
@@ -53,7 +53,8 @@ public class ArraySortedList<T> extends ArrayUnsortedList<T> implements ListInte
 		for (int index = getNumberOfElements(); index > location; index--) {
 			originalListElement[index] = getList()[index - 1];
 		}
-
+		
+		originalListElement[location] = element;
 		setNumberOfElements(getNumberOfElements() + 1);
 		setList(originalListElement);
 	}
@@ -63,7 +64,7 @@ public class ArraySortedList<T> extends ArrayUnsortedList<T> implements ListInte
 	 * 
 	 * @param element
 	 * 
-	 *            요소의 삭제가 성공하면 true, false는 element가 list에 없다는 결과이다.
+	 * 요소의 삭제가 성공하면 true, false는 element가 list에 없다는 결과이다.
 	 * @return true, false
 	 * 
 	 * 
