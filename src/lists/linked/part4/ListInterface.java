@@ -3,8 +3,6 @@ package lists.linked.part4;
 public interface ListInterface<T> {
 	public int size();
 	
-	public void add(T element);
-	
 	public boolean contains(T element);
 	
 	public boolean remove(T element);
