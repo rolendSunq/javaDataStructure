@@ -112,8 +112,8 @@ public class SortedListImpl<T> implements SortedInterface<T> {
 	}
 
 	/**
-	 * 이진 탐색 알고리즘을 도입하여 target 요소를 list에서 찾는다.
-	 * 
+	 *  이진 탐색 알고리즘을 도입하여 target 요소를 list에서 찾는다.
+	 *  
 	 * @param target
 	 */
 	@SuppressWarnings("unchecked")
@@ -170,14 +170,5 @@ public class SortedListImpl<T> implements SortedInterface<T> {
 			larger[i] = list[i];
 		}
 		list = larger;
-	}
-	
-	@Override
-	public String toString() {
-		String result = "list::::";
-		for (T element : list) {
-			result += ("[" + element + "]");
-		}
-		return result;
 	}
 }
