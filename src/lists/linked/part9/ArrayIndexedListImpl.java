@@ -3,70 +3,123 @@ package lists.linked.part9;
 import lists.linked.part4.IndexedListInterface;
 
 public class ArrayIndexedListImpl<T> implements IndexedListInterface<T> {
+	private final int DEFAULT_CAPACITY = 100;
+	private int originalCapacity;
+	private T[] list;
+	private int numberOfElements;
+	private int currentPosition;
+	
+	// find 메소드에 설정됨
+	boolean found;
+	private int location;
+
+	@SuppressWarnings("unchecked")
+	public ArrayIndexedListImpl() {
+		list = (T[]) new Object[DEFAULT_CAPACITY];
+		originalCapacity = DEFAULT_CAPACITY;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayIndexedListImpl(int originalCapacity) {
+		list = (T[]) new Object[originalCapacity];
+		this.originalCapacity = originalCapacity; 
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected void enlarge() {
+		T[] larger = (T[]) new Object[list.length + originalCapacity];
+		
+		for (int i = 0; i < numberOfElements; i++) {
+			larger[i] = list[i];
+		}
+		
+		list = larger;
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected void find(T element) {
+		Comparable<T> targetElement = (Comparable<T>) element;
+		found = false;
+		recommandFind(targetElement, 0, numberOfElements - 1);
+	}
+	
+	protected void recommandFind(Comparable<T> targetElement, int fromLocation, int toLocation) {
+		
+	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return numberOfElements;
 	}
 
 	@Override
 	public boolean contains(T element) {
-		// TODO Auto-generated method stub
-		return false;
+		find(element);
+		return found;
 	}
+
 
 	@Override
 	public boolean remove(T element) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public T get(T element) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public T getNext() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void add(int index, T element) {
-		// TODO Auto-generated method stub
+		if (index < 0 || index > size())
+			throw new IndexOutOfBoundsException("illegal index of " + index + 
+                    " passed to ArrayIndexedList add method.\n");
 		
+		if (numberOfElements == list.length)
+			enlarge();
+		
+		for (int i = numberOfElements; i > index; i--) {
+			list[i] = list[i - 1];
+		}
+		
+		list[index] = element;
+		numberOfElements++;
 	}
 
 	@Override
 	public T set(int index, T element) {
-		// TODO Auto-generated method stub
-		return null;
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException("illegal index of " + index + 
+                " passed to ArrayIndexedList set method.\n");
+		}
+		
+		T hold = list[index];
+		list[index] = element;
+		return hold;
 	}
 
 	@Override
 	public T get(int index) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int indexOf(T element) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public T remove(int index) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
