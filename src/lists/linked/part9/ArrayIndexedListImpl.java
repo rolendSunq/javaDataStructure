@@ -44,9 +44,23 @@ public class ArrayIndexedListImpl<T> implements IndexedListInterface<T> {
 	}
 	
 	protected void recommandFind(Comparable<T> targetElement, int fromLocation, int toLocation) {
-		
+		if (fromLocation > toLocation) {
+			found = false;
+		} else {
+			int compareResult;
+			location = (fromLocation + toLocation) / 2;
+			compareResult = targetElement.compareTo(list[location]);
+			
+			if (compareResult == 0) {
+				found = true;
+			} else if (compareResult < 0) { // targetElement는 list의 element 보다 값이 적다.
+				recommandFind(targetElement, fromLocation, location - 1);
+			} else {// targetElement는 list의 element 보다 값이 크다.
+				recommandFind(targetElement, location + 1, toLocation);
+			}
+		}
 	}
-
+	
 	@Override
 	public int size() {
 		return numberOfElements;
@@ -120,7 +134,20 @@ public class ArrayIndexedListImpl<T> implements IndexedListInterface<T> {
 
 	@Override
 	public T remove(int index) {
-		return null;
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException("illegal index of " + index + 
+                    " passed to ArrayIndexedList remove method");
+		}
+		
+		T hold = list[index];
+		
+		for (int i = index; i < numberOfElements; i++) {
+			list[i] = list[i + 1];
+		}
+		
+		list[numberOfElements] = null;
+		numberOfElements--;
+		return hold;
 	}
 
 }
