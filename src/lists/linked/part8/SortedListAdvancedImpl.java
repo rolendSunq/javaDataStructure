@@ -42,11 +42,10 @@ public class SortedListAdvancedImpl<T> implements SortedInterface<T> {
 
 			if (compareResult == 0) // Base case 2
 				found = true;
-			else if (compareResult < 0) // target is less than element at
-										// location
+			else if (compareResult < 0) // 찾는 요소 보다 대상의 위치가 적다.
 				recommandFind(target, fromLocation, location - 1);
 			else
-				// target is greater than element at location
+				// 찾는 요소가 검색 대상의 위치 보다 크다.
 				recommandFind(target, location + 1, toLocation);
 		}
 	}
@@ -104,7 +103,7 @@ public class SortedListAdvancedImpl<T> implements SortedInterface<T> {
 
 	@Override
 	public T getNext() {
-		T next = list[location];
+		T next = list[currentPosition];
 		
 		if (currentPosition == (numberOfElements - 1)) {
 			currentPosition = 0;
