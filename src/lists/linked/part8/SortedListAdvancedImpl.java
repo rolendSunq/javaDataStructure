@@ -140,11 +140,10 @@ public class SortedListAdvancedImpl<T> implements SortedInterface<T> {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb.append("list::::");
+		sb.append("list==> ");
 		for (int i = 0; i < numberOfElements; i++) {
 			sb.append("[" + list[i] + "]");
 		}
-		sb.append("::::END");
 		return sb.toString();
 	}
 }

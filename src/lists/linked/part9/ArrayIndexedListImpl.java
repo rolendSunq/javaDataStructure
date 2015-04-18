@@ -9,10 +9,10 @@ public class ArrayIndexedListImpl<T> implements IndexedListInterface<T> {
 	private int numberOfElements;
 	private int currentPosition;
 	
-	//find 메소드에 의해 설정
-	private boolean found;
+	// find 메소드에 설정됨
+	boolean found;
 	private int location;
-	
+
 	@SuppressWarnings("unchecked")
 	public ArrayIndexedListImpl() {
 		list = (T[]) new Object[DEFAULT_CAPACITY];
@@ -22,7 +22,18 @@ public class ArrayIndexedListImpl<T> implements IndexedListInterface<T> {
 	@SuppressWarnings("unchecked")
 	public ArrayIndexedListImpl(int originalCapacity) {
 		list = (T[]) new Object[originalCapacity];
-		this.originalCapacity = originalCapacity;
+		this.originalCapacity = originalCapacity; 
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected void enlarge() {
+		T[] larger = (T[]) new Object[list.length + originalCapacity];
+		
+		for (int i = 0; i < numberOfElements; i++) {
+			larger[i] = list[i];
+		}
+		
+		list = larger;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -64,13 +75,11 @@ public class ArrayIndexedListImpl<T> implements IndexedListInterface<T> {
 
 	@Override
 	public boolean remove(T element) {
-		
 		return false;
 	}
 
 	@Override
 	public T get(T element) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -81,31 +90,45 @@ public class ArrayIndexedListImpl<T> implements IndexedListInterface<T> {
 
 	@Override
 	public T getNext() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void add(int index, T element) {
-		// TODO Auto-generated method stub
+		if (index < 0 || index > size())
+			throw new IndexOutOfBoundsException("illegal index of " + index + 
+                    " passed to ArrayIndexedList add method.\n");
 		
+		if (numberOfElements == list.length)
+			enlarge();
+		
+		for (int i = numberOfElements; i > index; i--) {
+			list[i] = list[i - 1];
+		}
+		
+		list[index] = element;
+		numberOfElements++;
 	}
 
 	@Override
 	public T set(int index, T element) {
-		// TODO Auto-generated method stub
-		return null;
+		if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException("illegal index of " + index + 
+                " passed to ArrayIndexedList set method.\n");
+		}
+		
+		T hold = list[index];
+		list[index] = element;
+		return hold;
 	}
 
 	@Override
 	public T get(int index) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int indexOf(T element) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
