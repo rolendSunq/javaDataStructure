@@ -76,7 +76,7 @@ public class SortedListAdvancedImpl<T> implements SortedInterface<T> {
 		find(element);
 		
 		if (found) {
-			for (int i = location; i <= numberOfElements - 2; location++) {
+			for (int i = location; i <= numberOfElements - 2; i++) {
 				list[i] = list[i + 1];
 			}
 			list[numberOfElements - 1] = null;
