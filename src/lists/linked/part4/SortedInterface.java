@@ -6,5 +6,5 @@ public interface SortedInterface<T> extends ListInterface<T> {
 	 * 리스트는 정렬되어 진다.
 	 * @param element
 	 */
-	public void add(Comparable<T> element);
+	public void add(T element);
 }

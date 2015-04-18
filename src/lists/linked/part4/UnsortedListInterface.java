@@ -1,6 +1,6 @@
 package lists.linked.part4;
 /**
- * ListInterface는 element를 추가하는 method가 없다.
+ * ListInterface는 element를 추가하는 add method가 없다.
  * 그 이유를 기술하라.
  * 
  * @author rolendSunq

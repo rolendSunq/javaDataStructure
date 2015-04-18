@@ -18,7 +18,7 @@ public interface ListInterface<T> {
 	 * 만약 현재 위치가 마지막 요소(element)에 있다면  현재 위치의 첫 번째 요소(element)의 값을 반환하며                                                                                                                         
 	 * 그렇지 않으면 현재 위치에서 진행하여 다음 요소(element)의 값을 반환합니다.                                                                                                                                           
 	 */                                                                                                                                                                                         
-	public T getNext();					                                                                                                                                                        
+	public T getNext();
 } 
 
 
